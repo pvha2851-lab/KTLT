@@ -1,0 +1,15 @@
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		ll L,R;
+		cin>>L>>R;
+		ll x=sqrt(L),y=sqrt(R);
+		if(x*x!=L)	x++;
+		cout<<y-x+1<<endl;
+	}
+	return 0;
+}
