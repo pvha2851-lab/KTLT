@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+ll sum_uockhac(ll n,ll m){
+	ll sum=0;
+	if(m%n==0)	return 0;
+	for(ll i=1;i<=sqrt(n);i++){
+		if(n%i==0){
+			ll x1=i,x2=n/i;
+			if(m%x1!=0)	sum+=x1;
+			if(m%x2!=0&&x2!=x1)	sum+=x2;
+		}
+	}
+	return sum;
+}
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		ll n,m;
+		cin>>n>>m;
+		cout<<sum_uockhac(n,m)<<endl;
+	}
+	return 0;
+}
