@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+ll bin_to_dec(string s){
+	ll sum=0;
+	for(char c:s){
+		sum=sum*2+(c-'0');
+	} 
+	return sum;
+}
+int main(){
+	int t;
+	cin>>t;
+	cin.ignore();
+	while(t--){
+		string s;
+		getline(cin,s);
+		cout<<bin_to_dec(s)<<endl;
+	}
+	return 0; 
+} 
