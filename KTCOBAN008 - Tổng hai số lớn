@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+string sumstring(string s1,string s2){
+	if(s1.size()>s2.size())	swap(s1,s2);
+	int n1=s1.size(),n2=s2.size();
+	int d=n2-n1,carry=0;
+	string s="";
+	for(int i=n1-1;i>=0;i--){
+		int sum=(s1[i]-'0')+(s2[i+d]-'0')+carry;
+		s.push_back(sum%10+'0');
+		carry=sum/10;
+	}
+	for(int i=d-1;i>=0;i--){
+		int sum=(s2[i]-'0')+carry;
+		s.push_back(sum%10+'0');
+		carry=sum/10;
+	}
+	if(carry>0)	s.push_back(carry+'0');
+	reverse(s.begin(),s.end());
+	return s;
+}
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		string a,b;
+		cin>>a>>b;
+		cout<<sumstring(a,b)<<endl;
+	}
+	return 0;
+}
