@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+int INF=1e6; 
+vector<int> isprime(INF,1);
+vector<int> prime;
+void sangnguyento(){
+	for(int i=2;i<=sqrt(INF);i++){
+		if(isprime[i]){
+			for(int j=i*i;j<=INF;j+=i){
+				isprime[j]=0;
+			}
+		}
+	}
+	for(int i=2;i<=INF;i++){
+		if(isprime[i]){
+			prime.push_back(i);
+		}
+	}
+} 
+int main(){
+	sangnguyento(); 
+	int t;
+	cin>>t;
+	while(t--){
+		int L,R;
+		cin>>L>>R;
+		int pos=lower_bound(prime.begin(),prime.end(),L)-prime.begin();
+		int cnt=0;
+		for(int i=pos;i<prime.size();i++){
+			if(prime[i]>R) break;
+			cnt++;
+		}
+		cout<<cnt<<endl;
+	}
+	return 0; 
+} 
