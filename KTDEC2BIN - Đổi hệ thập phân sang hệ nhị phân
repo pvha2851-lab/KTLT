@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+string dec_to_bin(ll n){
+	string s="";
+	if(n==0)	return "0";
+	while(n>0){
+		int r=n%2;
+		s.push_back(r+'0');
+		n=n/2;
+	}
+	reverse(s.begin(),s.end());
+	return s;
+}
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		ll n;
+		cin>>n;
+		cout<<dec_to_bin(n)<<endl;
+	}
+	return 0;
+}
