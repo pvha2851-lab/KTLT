@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		int x;
+		cin>>x;
+		bool check=false;
+		string s="-1";
+		for(int L=1;L<=200&&!check;L++){
+			for(int a=0;a<=L&&!check;a++){
+				int b=L-a;
+				int res=0;
+				for(int i=0;i<a;i++)	res=(res*10+8)%x;
+				for(int i=0;i<b;i++)	res=(res*10+6)%x;
+				if(res==0){
+					s=string(a,'8')+string(b,'6');
+					check=true;
+				}
+			}
+		}
+		cout<<s<<endl;
+	}
+	return 0;
+}
