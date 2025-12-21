@@ -1,0 +1,15 @@
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		ll L,R;
+		cin>>L>>R;
+		ll x=R-L+1;
+		ll sum=x*(L+R)/2;
+		cout<<sum<<endl;
+	}
+	return 0;
+}
