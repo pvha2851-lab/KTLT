@@ -1,0 +1,47 @@
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+ll n,k;
+ll cnt;
+vector<ll> prime;
+vector<ll> isprime(1000,1);
+void sangngyento(){
+	for(int i=2;i<=sqrt(1000);i++){
+		if(isprime[i])
+		{
+			for(int j=i*i;j<=1000;j+=i){
+				isprime[j]=0;
+			}
+		}
+	}
+	for(int i=2;i<=1000;i++){
+		if(isprime[i])
+			prime.push_back(i);
+	}
+}
+void Try(int i,int dem,int sum){
+	if(sum==n&&dem==k){
+		cnt++;
+		return;
+	}
+	if(sum>n||dem>k){
+		return;
+	}
+	for(int j=i;j<prime.size();j++){
+		if(sum+prime[j]<=n&&dem<k){
+			Try(j+1,dem+1,sum+prime[j]);
+		}
+	}
+}
+int main(){
+	sangngyento();
+	int t;
+	cin>>t;
+	while(t--){
+		cin>>n>>k;
+		cnt=0;
+		Try(0,0,0);
+		cout<<cnt<<endl;
+	}
+	return 0;
+}
