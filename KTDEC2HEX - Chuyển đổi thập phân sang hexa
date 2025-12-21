@@ -1,0 +1,44 @@
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+string dec_to_hex(ll n){
+	string s="";
+	if(n==0)	return "0";
+	while(n>0){
+		int r=n%16;
+		if(r>=15){
+			s=s+"F";
+		}
+		else if(r>=14){
+			s=s+"E";
+		}
+		else if(r>=13){
+			s=s+"D";
+		}
+		else if(r>=12){
+			s=s+"C";
+		}
+		else if(r>=11){
+			s=s+"B";
+		}
+		else if(r>=10){
+			s=s+"A";
+		}
+		else{
+			s.push_back(r+'0');
+		}
+		n=n/16;
+	}
+	reverse(s.begin(),s.end());
+	return s;
+}
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		ll n;
+		cin>>n;
+		cout<<dec_to_hex(n)<<endl;
+	}
+	return 0;
+}
