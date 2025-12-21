@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+ll n,m;
+ll cnt=0;
+void Try(ll i,ll sum){
+	if(sum==n){
+		cnt++;
+		return;
+	}
+	if(sum>n)	return;
+	for(ll j=i;j<=sqrt(n);j++){
+		ll x=pow(j,m);
+		if(sum+x<=n){
+			Try(j+1,sum+x);
+		}
+	}
+}
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		cin>>n>>m;
+		cnt=0;
+		Try(1,0);
+		cout<<cnt<<endl;
+	}
+	return 0;
+}
