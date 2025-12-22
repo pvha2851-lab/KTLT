@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+ll sum_uoc(ll n){
+    ll sum=0;
+    for(ll i=1;i<=sqrt(n);i++){
+        if(n%i==0){
+            sum+=i;
+            if(n/i!=i){
+                sum+=n/i;
+            }
+        }
+    }
+    return sum;
+}
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        ll a,b;
+        cin>>a>>b;
+        ll suma=sum_uoc(a);
+        ll sumb=sum_uoc(b);
+        if(suma==sumb){
+            cout<<"YES\n";
+        }
+        else	cout<<"NO\n";
+    }
+    return 0;
+}
