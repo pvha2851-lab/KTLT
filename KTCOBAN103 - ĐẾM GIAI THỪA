@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+using namespace std;
+void demgiaithua(int n){
+	double long sumlog=0.0;
+	int d=0;
+	vector<int> v;
+	for(int i=1;;i++){
+		sumlog+=log10(i);
+		d=(int)sumlog+1;
+		if(d==n)	v.push_back(i);
+		if(d>n)	break;
+	}
+	if(v.empty()){
+		cout<<"NO";
+	}
+	else{
+		cout<<v.size()<<" ";
+		for(int x:v){
+			cout<<x<<" ";
+		}
+	}
+}
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		int n;
+		cin>>n;
+		demgiaithua(n);
+		cout<<endl;
+	}
+	return 0;
+}
