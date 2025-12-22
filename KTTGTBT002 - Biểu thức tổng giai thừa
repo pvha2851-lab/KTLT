@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		int n;
+		float x;
+		cin>>n>>x;
+		float s=0.0;
+		float gt=1;
+		float pows=1;
+		for(int i=1;i<=n;i++){
+			pows=pows*x;
+			gt=gt*(i*1.0);
+			s+=pows/gt;	
+		}
+		cout<<fixed<<setprecision(3)<<s<<endl;
+	}
+	return 0;
+} 
