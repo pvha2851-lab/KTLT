@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+int n,cnt;
+bool hang[15],cot[15],cheoxuoi[30],cheonguoc[30];
+void Try(int i){
+	for(int j=1;j<=n;j++){
+		if(!hang[i]&&!cot[j]&&!cheoxuoi[i+j-1]&&!cheonguoc[i-j+n]){
+			hang[i]=cot[j]=cheoxuoi[i+j-1]=cheonguoc[i-j+n]=true;
+			if(i==n){
+				cnt++;
+			}
+			else	Try(i+1);
+			hang[i]=cot[j]=cheoxuoi[i+j-1]=cheonguoc[i-j+n]=false;
+		}
+	}
+}
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		cin>>n;
+		cnt=0;
+		Try(1);
+		cout<<cnt<<endl;
+	}
+	return 0;
+}
