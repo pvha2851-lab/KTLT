@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		int a,b;
+		cin>>a>>b;
+		if(a>b)	swap(a,b);
+		vector<int> dem(10,0);
+		for(int i=a;i<=b;i++){
+			int x=i;
+			if(x==0)	dem[x]++;
+			while(x>0){
+				int r=x%10;
+				dem[r]++;
+				x=x/10;
+			}
+		}
+		for(int x:dem)	cout<<x<<" ";
+		cout<<endl;
+	}
+	return 0;
+}
