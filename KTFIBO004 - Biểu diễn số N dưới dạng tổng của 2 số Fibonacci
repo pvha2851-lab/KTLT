@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+vector<ll> F; 
+void fibo()
+{
+	F.push_back(0);
+	F.push_back(1);
+	while(1)
+	{
+		ll x=F[F.size()-1]+F[F.size()-2];
+		if(x>1000000) break;
+		F.push_back(x);
+	} 
+}
+int main()
+{
+	fibo();
+	int t;
+	cin>>t;
+	while(t--)
+	{
+		ll n;
+		cin>>n;
+		bool check=false;
+		for(int i=0;i<F.size()&&!check;i++)
+		{
+			for(int j=i+1;j<F.size()&&!check;j++)
+			{
+				ll x=F[i]+F[j];
+				if(x==n)
+				{
+					cout<<F[i]<<" "<<F[j]<<endl;
+					check=true;
+				}
+			}
+		}
+		if(!check)	cout<<-1<<endl;
+	}
+	return 0;
+} 
