@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+ll cnt_zero(ll n){
+	ll res=0;
+	while(n>0){
+		n=n/5;
+		res+=n;
+	}
+	return res;
+}
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		ll n;
+		cin>>n;
+		ll ans=0;
+		ll mid=4*n-1000;
+		while(mid<=4*n+1000){
+			if(cnt_zero(mid)>=n){
+				ans=mid;
+				break;
+			}
+			mid++;
+		} 
+		cout<<ans<<endl;
+	}
+	return 0;
+}
