@@ -1,0 +1,42 @@
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+ll n;
+ll cnt;
+int INF=1e5;
+vector<ll> F;
+void sangfibo(){
+	F.push_back(1);
+	F.push_back(2);
+	while(1){
+		ll x=F[F.size()-1]+F[F.size()-2];
+		if(x>INF)	break;
+		F.push_back(x);
+	}
+}
+void Try(int i,int sum){
+	if(sum==n){
+		cnt++;
+		return;
+	}
+	if(sum>n){
+		return;
+	}
+	for(int j=i;j<F.size();j++){
+		if(sum+F[j]<=n){
+			Try(j+1,sum+F[j]);
+		}
+	}
+}
+int main(){
+	sangfibo();
+	int t;
+	cin>>t;
+	while(t--){
+		cin>>n;
+		cnt=0;
+		Try(0,0);
+		cout<<cnt<<endl;
+	}
+	return 0;
+} 
