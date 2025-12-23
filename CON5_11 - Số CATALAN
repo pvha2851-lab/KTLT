@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+ll C[105]={0};
+void catalan(){
+    C[0]=1;
+    for(int i=1;i<=100;i++){
+        for(int j=0;j<i;j++){
+            C[i]+=C[j]*C[i-j-1];
+        }
+    }
+}
+int main(){
+    catalan();
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        cout<<C[n]<<endl;
+    }
+    return 0;
+}
