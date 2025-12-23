@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+ll bintodec(string s){
+    ll res=0;
+    reverse(s.begin(),s.end());
+    ll power=1;
+    for(char c:s){
+        if(c=='1'){
+            res+=power;
+        }
+        power=power*2;
+    }
+    return res;
+}
+int main(){
+    int t;
+    cin>>t;
+    cin.ignore();
+    while(t--){
+        string s1,s2;
+        cin>>s1>>s2;
+        ll a=bintodec(s1),b=bintodec(s2);
+        cout<<a*b<<endl;
+    }
+    return 0;
+}
