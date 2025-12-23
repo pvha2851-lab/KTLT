@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+const ll INF=1e5;
+vector<ll> maxprime(INF+1,0);
+vector<ll> dacbiet(INF+1);
+void sangnguyento(){
+    for(ll i=2;i<=INF;i++){
+        if(maxprime[i]==0){
+            for(ll j=i;j<=INF;j+=i){
+                maxprime[j]=i;
+            }
+        }
+	}
+    dacbiet[0]=0;
+    for(ll i=1;i<=INF;i++){
+        dacbiet[i]=dacbiet[i-1];
+        if(i>=2&&maxprime[i]>sqrt(i)){
+            dacbiet[i]=i;
+        }
+    }
+}
+int main(){
+    sangnguyento();
+    int t;
+    cin>>t;
+    while(t--){
+        ll n;
+        cin>>n;
+        cout<<dacbiet[n]<<endl;
+    }
+    return 0;
+}
