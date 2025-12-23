@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+const ll INF=500000;
+vector<ll> maxprime(INF+1,0);
+void sangnt(){
+    for(int i=2;i<=INF;i++){
+        if(maxprime[i]==0){
+            for(int j=i;j<=INF;j+=i){
+                maxprime[j]=i;
+            }
+        }
+    }
+}
+int main(){
+    sangnt();
+    int t;
+    cin>>t;
+    while(t--){
+        ll n;
+        cin>>n;
+        ll sum=0;
+        for(ll i=2;i<=n;i++){
+           		sum+=maxprime[i];
+        }
+        cout<<sum<<endl;
+	}
+    return 0;
+}
