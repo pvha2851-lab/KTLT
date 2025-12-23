@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int x;
+        cin>>x;
+        queue<ll> Q;
+        Q.push(9);
+        while(!Q.empty()){
+            ll u=Q.front();Q.pop();
+            if(u%x==0){
+                cout<<u<<endl;
+                break;
+            }
+            Q.push(u*10);
+            Q.push(u*10+9);
+        }
+    }
+    return 0;
+}
