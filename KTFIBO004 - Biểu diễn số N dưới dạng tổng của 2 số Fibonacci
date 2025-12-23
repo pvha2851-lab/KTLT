@@ -1,41 +1,28 @@
 #include<bits/stdc++.h>
 #define ll long long
 using namespace std;
-vector<ll> F; 
-void fibo()
-{
-	F.push_back(0);
-	F.push_back(1);
-	while(1)
-	{
-		ll x=F[F.size()-1]+F[F.size()-2];
-		if(x>1000000) break;
-		F.push_back(x);
-	} 
+ll F[32];
+int main(){
+    F[0]=0;
+    F[1]=1;
+    for(int i=2;i<=33;i++){
+        F[i]=F[i-1]+F[i-2];
+    }
+    int t;
+    cin>>t;
+    while(t--){
+        ll n;
+        cin>>n;
+        bool check=false;
+        for(int i=0;i<=33&&!check;i++){
+            for(int j=i+1;j<=33&&!check;j++){
+                if(F[i]+F[j]==n){
+                    check=true;
+                    cout<<F[i]<<" "<<F[j]<<endl;
+                }
+            }
+        }
+        if(!check)	cout<<-1<<endl;
+    }
+    return 0;
 }
-int main()
-{
-	fibo();
-	int t;
-	cin>>t;
-	while(t--)
-	{
-		ll n;
-		cin>>n;
-		bool check=false;
-		for(int i=0;i<F.size()&&!check;i++)
-		{
-			for(int j=i+1;j<F.size()&&!check;j++)
-			{
-				ll x=F[i]+F[j];
-				if(x==n)
-				{
-					cout<<F[i]<<" "<<F[j]<<endl;
-					check=true;
-				}
-			}
-		}
-		if(!check)	cout<<-1<<endl;
-	}
-	return 0;
-} 
