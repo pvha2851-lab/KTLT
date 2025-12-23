@@ -1,0 +1,42 @@
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+void uoc_max(ll n){
+  	ll uoc=0;
+    ll uoc_cnt=0;
+    while(n%2==0){
+        uoc=2;
+        uoc_cnt++;
+        n=n/2;
+    }
+    for(ll i=3;i*i<=n;i++){
+        if(n%i==0){
+            ll dem=0;
+            while(n%i==0){
+                dem++;
+                n=n/i;
+            }
+            if(dem>uoc_cnt||(dem==uoc_cnt&&uoc>i)){
+                uoc=i;
+                uoc_cnt=dem;
+            }
+        }
+    }
+    if(n>1){
+        if(uoc_cnt==0||uoc>n){
+            uoc=n;
+            uoc_cnt=1;
+        }
+    }
+    cout<<uoc<<" "<<uoc_cnt<<endl;
+}
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        ll n;
+        cin>>n;
+        uoc_max(n);
+    }
+    return 0;
+}
