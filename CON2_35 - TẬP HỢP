@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+ll n,k,s; 
+ll cnt;
+void Try(ll i,ll sum,ll dem)
+{
+	if(sum==s&&dem==k)
+	{
+		cnt++;
+		return;
+	}
+	for(ll j=i;j<=n;j++)
+	{
+		if(sum+j<=s&&dem<k)
+			Try(j+1,sum+j,dem+1);
+	}
+}
+int main(){
+    while(1)
+	{
+        cin>>n>>k>>s;
+        if(n==0&&k==0&&s==0)	break;
+		cnt=0;
+		Try(1,0,0);
+		cout<<cnt<<endl;
+	}
+	return 0;
+} 
