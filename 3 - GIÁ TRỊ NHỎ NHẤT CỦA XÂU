@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;cin.ignore();
+    while(t--){
+        int k;cin>>k;
+        cin.ignore();
+        string s;cin>>s;
+        vector<int> a(26,0);
+        for(char &c:s)	{
+            c=tolower(c);
+            a[c-'a']++;
+        }
+        while(k--){
+            int pos=max_element(a.begin(),a.end())-a.begin();
+            if(a[pos]>0) a[pos]--;
+        }
+        long long sum=0;
+        for(int x:a){
+            sum+=x*x;
+        }
+        cout<<sum<<endl;
+    }
+    return 0;
+}
