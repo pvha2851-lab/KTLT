@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+bool checkamong(ll n){
+    ll m=n;
+    vector<ll> v;
+    ll p=0;
+    while(n>0){
+        ll r=n%10;
+        v.push_back(r);
+        n=n/10;
+        p++;
+    }
+    ll sum=0;
+    for(ll x:v){
+       sum=sum+pow(x,p);
+    }
+    if(sum==m)	return true;
+    return false;
+}
+int main(){
+    int t;
+    cin>>t;
+    cin.ignore();
+    while(t--){
+        ll n;
+        cin>>n;
+        if(checkamong(n)){
+            cout<<"1\n";
+        }
+        else{
+            cout<<"0\n";
+        }
+    }
+    return 0;
+}
