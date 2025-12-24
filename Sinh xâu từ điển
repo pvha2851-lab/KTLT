@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    cin.ignore();
+    while(t--){
+        string s;
+        getline(cin,s);
+        for(char &c:s)	c=tolower(c);
+        vector<int> v;
+        for(char c:s){
+            auto it=lower_bound(v.begin(),v.end(),c);
+            if(it==v.end()){
+                v.push_back(c);
+            }
+            else *it=c;
+        }
+        cout<<v.size()<<endl;
+    }
+    return 0;
+}
